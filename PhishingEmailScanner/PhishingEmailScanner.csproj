@@ -351,9 +351,14 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Rules\AllowedSendersRuleOverride.cs" />
+    <Compile Include="Rules\DomainReputationRuleOverride.cs" />
+    <Compile Include="Rules\IPhishingRuleOverride.cs" />
+    <Compile Include="Rules\ReturnPathMismatchRule.cs" />
     <Compile Include="Rules\SenderAuthenticityRule.cs" />
     <Compile Include="Rules\AttachmentsRule.cs" />
     <Compile Include="Rules\CommonDomainsRule.cs" />
+    <Compile Include="Rules\SuspiciousSenderIPAddress.cs" />
     <Compile Include="Rules\UrgencyLanguageRule.cs" />
     <Compile Include="PhishingDetectorEngine.cs" />
     <Compile Include="Rules\IPhishingRule.cs" />
@@ -394,6 +399,7 @@
     <Compile Include="Ribbon.Designer.cs">
       <DependentUpon>Ribbon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rules\SenderDomainAlignmentRule.cs" />
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
     </Compile>

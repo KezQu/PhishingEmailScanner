@@ -5,12 +5,17 @@ namespace PhishingEmailScanner
     public class PhishingDetectorEngine
     {
         private readonly List<IPhishingRule> rules_ = new List<IPhishingRule>();
+        private readonly List<IPhishingRuleOverride> rules_override_ = new List<IPhishingRuleOverride>();
 
         public void AddRule(IPhishingRule rule)
         {
             rules_.Add(rule);
         }
 
+        public void AddRuleOverride(IPhishingRuleOverride rule)
+        {
+            rules_override_.Add(rule);
+        }
         public PhishingAnalysisResult Analyze(IMailItem mail)
         {
             var result = new PhishingAnalysisResult();
@@ -22,8 +27,16 @@ namespace PhishingEmailScanner
                     result.TriggeredRules.Add(rule.Name);
                 }
             }
-
             result.ConfidenceLevel = CalculateConfidence(result.TriggeredRules.Count);
+
+            foreach (var rule in rules_override_)
+            {
+                if (rule.IsMatch(mail))
+                {
+                    result.ConfidenceLevel = PhishingConfidenceLevel.kNone;
+
+                }
+            }
 
             return result;
         }

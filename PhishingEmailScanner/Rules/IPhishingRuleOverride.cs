@@ -1,6 +1,6 @@
 ﻿namespace PhishingEmailScanner
 {
-    public interface IPhishingRuleOverride
+    public interface IPhishingRule
     {
         string Name { get; }
         bool IsMatch(IMailItem mail);
