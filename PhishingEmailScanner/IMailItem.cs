@@ -7,7 +7,7 @@ namespace PhishingEmailScanner
         string Subject { get; }
         string Body { get; }
         string SenderEmail { get; }
-        IEnumerable<string> Links { get; }
+        List<string> Links { get; }
     }
 
 }

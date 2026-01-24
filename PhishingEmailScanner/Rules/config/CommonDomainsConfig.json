@@ -1,0 +1,40 @@
+{
+  "Domains": [
+    "google.com",
+    "accounts.google.com",
+    "microsoft.com",
+    "outlook.com",
+    "office.com",
+    "live.com",
+
+    "facebook.com",
+    "fb.com",
+    "instagram.com",
+
+    "apple.com",
+    "icloud.com",
+
+    "amazon.com",
+    "amazon.pl",
+
+    "paypal.com",
+
+    "allegro.pl",
+    "olx.pl",
+
+    "inpost.pl",
+    "dhl.com",
+    "dhl.pl",
+
+    "netflix.com",
+    "spotify.com",
+
+    "linkedin.com",
+
+    "pkobp.pl",
+    "ipko.pl",
+    "mbank.pl",
+    "ing.pl",
+    "santander.pl"
+  ]
+}

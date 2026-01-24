@@ -21,9 +21,9 @@ namespace PhishingEmailScanner
         public string Body => mail_.Body;
         public string SenderEmail => mail_.SenderEmailAddress;
 
-        public IEnumerable<string> Links =>
+        public List<string> Links =>
             Regex.Matches(mail_.HTMLBody ?? "", @"https?://\S+")
                 .Cast<Match>()
-                .Select(m => m.Value);
+                .Select(m => m.Value).ToList();
     }
 }

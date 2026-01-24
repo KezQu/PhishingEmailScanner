@@ -15,7 +15,7 @@ namespace PhishingEmailScanner
 
             var root = JsonSerializer.Deserialize<JsonElement>(json);
             urgency_phrases_ = JsonSerializer.Deserialize<List<string>>(
-                root.GetProperty("UrgencyLanguage").GetProperty("Phrases").GetRawText()
+                root.GetProperty("Phrases").GetRawText()
             );
         }
         public string Name => "Urgency Language";
