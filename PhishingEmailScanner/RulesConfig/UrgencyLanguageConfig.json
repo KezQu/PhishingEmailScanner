@@ -1,0 +1,43 @@
+{
+  "UrgencyLanguage": {
+    "Phrases": [
+      "natychmiast",
+      "pilne",
+      "działaj teraz",
+      "ostatnie ostrzeżenie",
+      "masz 24 godziny",
+      "w ciągu 24 godzin",
+      "w ciągu 48 godzin",
+      "niezwłocznie",
+      "do końca dnia",
+
+      "twoje konto zostanie zablokowane",
+      "konto zostanie zawieszone",
+      "utrata dostępu",
+      "konto zostanie usunięte",
+      "usługa zostanie wyłączona",
+      "nieautoryzowana aktywność",
+      "naruszenie bezpieczeństwa",
+
+      "wymagana weryfikacja",
+      "potwierdź swoją tożsamość",
+      "zaktualizuj swoje dane",
+      "potwierdź dane logowania",
+      "zweryfikuj konto",
+      "akcja wymagana",
+
+      "nieudana płatność",
+      "podejrzana transakcja",
+      "obciążenie konta",
+      "zwrot środków",
+      "faktura do zapłaty",
+      "zaległa płatność",
+
+      "twoje bezpieczeństwo jest zagrożone",
+      "ochrona twoich danych",
+      "krytyczne zagrożenie",
+      "wykryto podejrzaną aktywność",
+      "próba logowania"
+    ]
+  }
+}
