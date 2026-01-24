@@ -16,6 +16,5 @@ namespace PhishingEmailScanner
     {
         public PhishingConfidenceLevel ConfidenceLevel { get; set; }
         public List<string> TriggeredRules { get; set; } = new List<string>();
-        public int Score { get; set; }
     }
 }

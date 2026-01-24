@@ -19,8 +19,6 @@ namespace PhishingEmailScanner
             );
         }
         public string Name => "Urgency Language";
-        public int Score => 20;
-
         public bool IsMatch(IMailItem mail)
         {
             string text = (mail.Subject + mail.Body)?.ToLower();

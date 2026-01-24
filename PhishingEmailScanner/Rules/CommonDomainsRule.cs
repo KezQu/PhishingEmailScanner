@@ -22,8 +22,6 @@ namespace PhishingEmailScanner
             );
         }
         public string Name => "Common Domain";
-        public int Score => 20;
-
         public bool IsMatch(IMailItem mail)
         {
             var domains = mail.Links

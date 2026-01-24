@@ -351,6 +351,8 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Rules\SenderAuthenticityRule.cs" />
+    <Compile Include="Rules\AttachmentsRule.cs" />
     <Compile Include="Rules\CommonDomainsRule.cs" />
     <Compile Include="Rules\UrgencyLanguageRule.cs" />
     <Compile Include="PhishingDetectorEngine.cs" />
@@ -374,6 +376,7 @@
       <DependentUpon>Ribbon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Rules\config\AttachmentsConfig.json" />
     <None Include="Rules\config\CommonDomainsConfig.json" />
     <None Include="Rules\config\UrgencyLanguageConfig.json" />
     <None Include="PhishingEmailScanner_TemporaryKey.pfx" />

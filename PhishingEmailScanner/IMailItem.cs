@@ -8,6 +8,8 @@ namespace PhishingEmailScanner
         string Body { get; }
         string SenderEmail { get; }
         List<string> Links { get; }
+        List<string> Attachments { get; }
+        string Headers { get; }
     }
 
 }

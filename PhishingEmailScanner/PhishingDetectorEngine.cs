@@ -14,41 +14,38 @@ namespace PhishingEmailScanner
         public PhishingAnalysisResult Analyze(IMailItem mail)
         {
             var result = new PhishingAnalysisResult();
-            int score = 0;
 
             foreach (var rule in rules_)
             {
                 if (rule.IsMatch(mail))
                 {
-                    score += rule.Score;
                     result.TriggeredRules.Add(rule.Name);
                 }
             }
 
-            result.Score = score;
-            result.ConfidenceLevel = CalculateConfidence(score);
+            result.ConfidenceLevel = CalculateConfidence(result.TriggeredRules.Count);
 
             return result;
         }
 
         private PhishingConfidenceLevel CalculateConfidence(int score)
         {
-            if (score >= 80)
+            if (score >= 4)
             {
                 return PhishingConfidenceLevel.kCritical;
 
             }
-            else if (score >= 50)
+            else if (score == 3)
             {
                 return PhishingConfidenceLevel.kHigh;
 
             }
-            else if (score >= 50)
+            else if (score == 2)
             {
                 return PhishingConfidenceLevel.kMedium;
 
             }
-            else if (score >= 50)
+            else if (score == 1)
             {
                 return PhishingConfidenceLevel.kLow;
 

@@ -1,0 +1,34 @@
+{
+  "Attachments": {
+    "Extentions": [
+      "exe",
+      "js",
+      "vbs",
+      "bat",
+      "cmd",
+      "ps1",
+      "scr",
+      "msi",
+      "hta",
+      "jar",
+      "docm",
+      "xlsm",
+      "pptm",
+      "zip",
+      "rar",
+      "7z",
+      "iso"
+    ],
+    "Filenames": [
+      "faktura",
+      "invoice",
+      "payment",
+      "scan",
+      "document",
+      "dokument",
+      "receipt",
+      "billing",
+      "order"
+    ]
+  }
+}
