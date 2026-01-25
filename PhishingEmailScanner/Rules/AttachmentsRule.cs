@@ -6,8 +6,8 @@ namespace PhishingEmailScanner
 {
     public class AttachmentsRule : IPhishingRule
     {
-        private List<string> suspicious_extentions_ = new List<string>();
-        private List<string> suspicious_filenames_ = new List<string>();
+        private readonly List<string> suspicious_extentions_ = new List<string>();
+        private readonly List<string> suspicious_filenames_ = new List<string>();
 
         public AttachmentsRule(string config_path)
         {

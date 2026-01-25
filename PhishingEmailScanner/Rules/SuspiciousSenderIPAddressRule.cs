@@ -2,7 +2,7 @@
 
 namespace PhishingEmailScanner.Rules
 {
-    public class SuspiciousSenderIPAddress : IPhishingRule
+    public class SuspiciousSenderIPAddressRule : IPhishingRule
     {
         public string Name => "Suspicious Sender IP Address";
 

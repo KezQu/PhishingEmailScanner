@@ -6,7 +6,7 @@ namespace PhishingEmailScanner.Rules
     {
         public string Name => "Sender In Allowed Address Book";
 
-        public HashSet<string> allowed_senders_;
+        private HashSet<string> allowed_senders_;
 
         public bool IsMatch(IMailItem mail)
         {
