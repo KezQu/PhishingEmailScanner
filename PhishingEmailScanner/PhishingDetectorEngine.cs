@@ -40,7 +40,6 @@ namespace PhishingEmailScanner
 
             return result;
         }
-
         private PhishingConfidenceLevel CalculateConfidence(int score)
         {
             if (score >= 4)

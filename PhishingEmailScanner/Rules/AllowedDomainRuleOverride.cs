@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace PhishingEmailScanner
 {
-    public class DomainReputationRuleOverride : IPhishingRuleOverride
+    public class AllowedDomaiRuleOverride : IPhishingRuleOverride
     {
-        public string Name => "Domain / IP Reputation";
+        public string Name => "Allowed Domain / IP";
 
         private readonly HashSet<string> whitelisted_domains_;
 
-        public DomainReputationRuleOverride(
+        public AllowedDomaiRuleOverride(
             IEnumerable<string> whitelisted_domains)
         {
             whitelisted_domains_ = new HashSet<string>(whitelisted_domains);

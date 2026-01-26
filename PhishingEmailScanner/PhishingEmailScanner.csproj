@@ -428,7 +428,7 @@
   -->
   <ItemGroup>
     <Compile Include="Rules\AllowedSendersRuleOverride.cs" />
-    <Compile Include="Rules\DomainReputationRuleOverride.cs" />
+    <Compile Include="Rules\AllowedDomainRuleOverride.cs" />
     <Compile Include="Rules\IPhishingRuleOverride.cs" />
     <Compile Include="Rules\ReturnPathMismatchRule.cs" />
     <Compile Include="Rules\SenderAuthenticityRule.cs" />
@@ -444,6 +444,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WhitelistCacheManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

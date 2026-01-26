@@ -77,11 +77,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllowedDomaiRuleOverrideTests.cs" />
+    <Compile Include="AllowedSendersRuleOverrideTests.cs" />
     <Compile Include="AttachmentsRuleTests.cs" />
     <Compile Include="CommonDomainsRuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReturnPathMissmatchRuleTests.cs" />
+    <Compile Include="SenderAuthenticityRuleTests.cs" />
+    <Compile Include="SenderDomainAlignmentRuleTests.cs" />
+    <Compile Include="SuspiciousSenderIPAddressRuleTests.cs" />
     <Compile Include="TestMailItem.cs" />
+    <Compile Include="UrgencyLanguageRuleTests.cs" />
+    <Compile Include="WhitelistCacheManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
