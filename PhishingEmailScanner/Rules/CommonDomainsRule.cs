@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace PhishingEmailScanner
+namespace PhishingEmailScanner.Rules
 {
     public class CommonDomainsRule : IPhishingRule
     {
@@ -22,7 +22,7 @@ namespace PhishingEmailScanner
             );
         }
         public string Name => "Common Domain";
-        public bool IsMatch(IMailItem mail)
+        public PhishingConfidenceLevel IsMatch(IMailItem mail)
         {
             var domains = mail.Links
                 .Select(link =>
@@ -47,11 +47,11 @@ namespace PhishingEmailScanner
                     var jaro_winkler_similarity = jaro_winkler.Similarity(domain, common_domain);
                     if ((levenstein_similarity >= 0.8) || jaro_winkler_similarity >= 0.9)
                     {
-                        return true;
+                        return PhishingConfidenceLevel.kModerate;
                     }
                 }
             }
-            return false;
+            return PhishingConfidenceLevel.kNone;
         }
 
     }

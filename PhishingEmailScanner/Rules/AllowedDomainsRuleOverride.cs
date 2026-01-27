@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PhishingEmailScanner
+namespace PhishingEmailScanner.Rules
 {
-    public class AllowedDomaiRuleOverride : IPhishingRuleOverride
+    public class AllowedDomainsRuleOverride : IPhishingRuleOverride
     {
         public string Name => "Allowed Domain / IP";
 
         private readonly HashSet<string> whitelisted_domains_;
 
-        public AllowedDomaiRuleOverride(
+        public AllowedDomainsRuleOverride(
             IEnumerable<string> whitelisted_domains)
         {
             whitelisted_domains_ = new HashSet<string>(whitelisted_domains);

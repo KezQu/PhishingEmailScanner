@@ -21,7 +21,14 @@ namespace PhishingEmailScanner
             }
             whitelist_cache_[category].Add(value);
         }
-
+        public HashSet<string> GetFromWhitelist(string category)
+        {
+            if (!whitelist_cache_.ContainsKey(category))
+            {
+                whitelist_cache_[category] = new HashSet<string>();
+            }
+            return whitelist_cache_[category];
+        }
         public void LoadWhitelist()
         {
             if (!File.Exists(cache_file_path_))

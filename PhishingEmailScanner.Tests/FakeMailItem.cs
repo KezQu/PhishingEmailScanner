@@ -2,7 +2,7 @@
 
 namespace PhishingEmailScanner.Tests
 {
-    public class TestMailItem : IMailItem
+    public class FakeMailItem : IMailItem
     {
         public string Subject { get; set; }
         public string Body { get; set; }

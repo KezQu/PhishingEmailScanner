@@ -1,19 +1,19 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace PhishingEmailScanner
+namespace PhishingEmailScanner.Rules
 {
     public class ReturnPathMismatchRule : IPhishingRule
     {
         public string Name => "Return-Path Mismatch";
 
-        public bool IsMatch(IMailItem mail)
+        public PhishingConfidenceLevel IsMatch(IMailItem mail)
         {
             if (string.IsNullOrWhiteSpace(mail.Headers) ||
                 string.IsNullOrWhiteSpace(mail.SenderEmail))
-                return false;
+                return PhishingConfidenceLevel.kNone;
 
-            var fromDomain = mail.SenderEmail.Split('@').Last().ToLowerInvariant();
+            var from_domain = mail.SenderEmail.Split('@').Last().ToLowerInvariant();
 
             var match = Regex.Match(
                 mail.Headers,
@@ -21,11 +21,14 @@ namespace PhishingEmailScanner
                 RegexOptions.IgnoreCase);
 
             if (!match.Success)
-                return false;
+                return PhishingConfidenceLevel.kNone;
 
-            var returnPathDomain = match.Groups[1].Value.ToLowerInvariant();
+            var return_path_domain = match.Groups[1].Value.ToLowerInvariant();
 
-            return !(fromDomain == returnPathDomain || returnPathDomain.Contains(fromDomain));
+            if (!(from_domain == return_path_domain || return_path_domain.Contains(from_domain)))
+                return PhishingConfidenceLevel.kModerate;
+
+            return PhishingConfidenceLevel.kNone;
         }
     }
 }

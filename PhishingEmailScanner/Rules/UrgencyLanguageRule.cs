@@ -3,7 +3,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace PhishingEmailScanner
+namespace PhishingEmailScanner.Rules
 {
     public class UrgencyLanguageRule : IPhishingRule
     {
@@ -19,11 +19,14 @@ namespace PhishingEmailScanner
             );
         }
         public string Name => "Urgency Language";
-        public bool IsMatch(IMailItem mail)
+        public PhishingConfidenceLevel IsMatch(IMailItem mail)
         {
             string text = (mail.Subject + mail.Body)?.ToLower();
 
-            return urgency_phrases_.Exists(p => text.Contains(p.ToLowerInvariant()));
+            if (urgency_phrases_.Exists(p => text.Contains(p.ToLowerInvariant())))
+                return PhishingConfidenceLevel.kLow;
+
+            return PhishingConfidenceLevel.kNone;
         }
 
     }

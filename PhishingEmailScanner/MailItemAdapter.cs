@@ -23,7 +23,7 @@ namespace PhishingEmailScanner
         public string SenderEmail => mail_.SenderEmailAddress;
 
         public List<string> Links =>
-            Regex.Matches(mail_.HTMLBody ?? "", @"https?://\S+")
+            Regex.Matches(mail_.HTMLBody ?? "", @"https?://[^\s""'<>\)\],;]+")
                 .Cast<Match>()
                 .Select(m => m.Value.Normalize(NormalizationForm.FormKC)).ToList();
         public List<string> Attachments =>

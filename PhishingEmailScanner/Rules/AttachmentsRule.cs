@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace PhishingEmailScanner
+namespace PhishingEmailScanner.Rules
 {
     public class AttachmentsRule : IPhishingRule
     {
@@ -22,22 +22,22 @@ namespace PhishingEmailScanner
                 );
         }
         public string Name => "Dangerous Attachment";
-        public bool IsMatch(IMailItem mail)
+        public PhishingConfidenceLevel IsMatch(IMailItem mail)
         {
             foreach (var attachment in mail.Attachments)
             {
                 if (attachment.Split('.').Length > 2)
-                {
-                    return true;
-                }
+                    return PhishingConfidenceLevel.kHigh;
+
                 var extention = Path.GetExtension(attachment)?.ToLowerInvariant();
+                if (suspicious_extentions_.Contains(extention))
+                    return PhishingConfidenceLevel.kHigh;
+
                 var filename = Path.GetFileNameWithoutExtension(attachment)?.ToLowerInvariant();
-                if (suspicious_extentions_.Contains(extention) || suspicious_filenames_.Contains(filename))
-                {
-                    return true;
-                }
+                if (suspicious_filenames_.Contains(filename))
+                    return PhishingConfidenceLevel.kModerate;
             }
-            return false;
+            return PhishingConfidenceLevel.kNone;
         }
 
     }

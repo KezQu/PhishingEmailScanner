@@ -1,8 +1,8 @@
-﻿namespace PhishingEmailScanner
+﻿namespace PhishingEmailScanner.Rules
 {
-    public interface IPhishingRuleOverride
+    public interface IPhishingRule
     {
         string Name { get; }
-        bool IsMatch(IMailItem mail);
+        PhishingConfidenceLevel IsMatch(IMailItem mail);
     }
 }
