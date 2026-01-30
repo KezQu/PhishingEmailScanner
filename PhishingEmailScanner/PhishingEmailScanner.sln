@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34616.47
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhishingEmailScanner", "PhishingEmailScanner.csproj", "{30D46AFA-2845-4443-AA89-1CC20DCD4B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhishingEmailScanner.Tests", "..\PhishingEmailScanner.Tests\PhishingEmailScanner.Tests.csproj", "{0E69A05D-F7E2-4745-BB1C-0588052753BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{30D46AFA-2845-4443-AA89-1CC20DCD4B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30D46AFA-2845-4443-AA89-1CC20DCD4B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30D46AFA-2845-4443-AA89-1CC20DCD4B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E69A05D-F7E2-4745-BB1C-0588052753BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E69A05D-F7E2-4745-BB1C-0588052753BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E69A05D-F7E2-4745-BB1C-0588052753BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E69A05D-F7E2-4745-BB1C-0588052753BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

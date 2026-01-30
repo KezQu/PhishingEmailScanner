@@ -69,7 +69,7 @@ namespace PhishingEmailScanner.Tests
             var mail = new FakeMailItem();
             var result = sut.Analyze(mail);
 
-            Assert.AreEqual(result.ConfidenceLevel, PhishingConfidenceLevel.kOverriden);
+            Assert.AreEqual(result.ConfidenceLevel, PhishingConfidenceLevel.kOverridden);
             Assert.AreEqual(result.TriggeredRuleOverrides.Count, 1);
             CollectionAssert.Contains(result.TriggeredRuleOverrides, "Override");
         }

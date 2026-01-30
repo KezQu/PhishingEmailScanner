@@ -21,7 +21,7 @@ namespace PhishingEmailScanner
         kMedium = 1 << 2,
         kHigh = 1 << 3,
         kCritical = 1 << 4,
-        kOverriden = 1 << 30
+        kOverridden = 1 << 30
     }
 
     public class PhishingAnalysisResult

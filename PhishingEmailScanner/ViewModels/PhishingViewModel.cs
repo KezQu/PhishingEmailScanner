@@ -89,7 +89,7 @@ public class PhishingViewModel : INotifyPropertyChanged
 
     public void Update( PhishingAnalysisResult result, string sender, string domain)
     {
-        Violations.Clear(); 
+        Violations.Clear();
         Overrides.Clear();
 
         foreach (var v in result.TriggeredRules)
@@ -115,7 +115,7 @@ public class PhishingViewModel : INotifyPropertyChanged
             return "Wykryto umiarkowane ryzyko phishingu.";
         if (level.HasFlag(PhishingConfidenceLevel.kLow))
             return "Wykryto niskie ryzyko phishingu.";
-        if (level.HasFlag(PhishingConfidenceLevel.kOverriden))
+        if (level.HasFlag(PhishingConfidenceLevel.kOverridden))
             return "Wykrywanie phishingu nadpisane przez białą listę.";
 
         return "E-mail wydaje się być bezpieczny.";
@@ -133,8 +133,8 @@ public class PhishingViewModel : INotifyPropertyChanged
             return PhishingConfidenceLevel.kModerate;
         if (level.HasFlag(PhishingConfidenceLevel.kLow))
             return PhishingConfidenceLevel.kLow;
-        if (level.HasFlag(PhishingConfidenceLevel.kOverriden))
-            return PhishingConfidenceLevel.kOverriden;
+        if (level.HasFlag(PhishingConfidenceLevel.kOverridden))
+            return PhishingConfidenceLevel.kOverridden;
 
         return PhishingConfidenceLevel.kNone;
     }

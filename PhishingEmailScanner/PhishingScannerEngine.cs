@@ -38,7 +38,7 @@ namespace PhishingEmailScanner
             {
                 if (rule.IsMatch(mail))
                 {
-                    analysis_result.ConfidenceLevel = PhishingConfidenceLevel.kOverriden;
+                    analysis_result.ConfidenceLevel = PhishingConfidenceLevel.kOverridden;
                     analysis_result.TriggeredRuleOverrides.Add(rule.Name);
                 }
             }
