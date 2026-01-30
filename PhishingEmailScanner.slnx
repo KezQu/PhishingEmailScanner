@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="PhishingEmailScanner.Tests/PhishingEmailScanner.Tests.csproj" Id="0e69a05d-f7e2-4745-bb1c-0588052753bb" />
   <Project Path="PhishingEmailScanner/PhishingEmailScanner.csproj" Id="30d46afa-2845-4443-aa89-1cc20dcd4b86" />
 </Solution>

@@ -1,0 +1,41 @@
+{
+  "Phrases": [
+    "immediately",
+    "urgent",
+    "act now",
+    "final warning",
+    "you have 24 hours",
+    "within 24 hours",
+    "within 48 hours",
+    "without delay",
+    "by the end of the day",
+
+    "your account will be blocked",
+    "account will be suspended",
+    "loss of access",
+    "account will be deleted",
+    "service will be disabled",
+    "unauthorized activity",
+    "security breach",
+
+    "verification required",
+    "confirm your identity",
+    "update your information",
+    "confirm login details",
+    "verify account",
+    "action required",
+
+    "failed payment",
+    "suspicious transaction",
+    "account charge",
+    "refund",
+    "invoice to pay",
+    "overdue payment",
+
+    "your security is at risk",
+    "protect your data",
+    "critical threat",
+    "suspicious activity detected",
+    "login attempt"
+  ]
+}
