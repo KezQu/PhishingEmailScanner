@@ -14,12 +14,15 @@ namespace PhishingEmailScanner.Rules
 
         public CommonDomainsRule(string config_path)
         {
-            var json = File.ReadAllText(config_path);
+            if (File.Exists(config_path))
+            {
+                var json = File.ReadAllText(config_path);
 
-            var root = JsonSerializer.Deserialize<JsonElement>(json);
-            common_domains_ = JsonSerializer.Deserialize<List<string>>(
-                root.GetProperty("Domains").GetRawText()
-            );
+                var root = JsonSerializer.Deserialize<JsonElement>(json);
+                common_domains_ = JsonSerializer.Deserialize<List<string>>(
+                    root.GetProperty("Domains").GetRawText()
+                );
+            }
         }
         public string Name => "Common Domain";
         public PhishingConfidenceLevel IsMatch(IMailItem mail)

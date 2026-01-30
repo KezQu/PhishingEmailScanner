@@ -11,15 +11,18 @@ namespace PhishingEmailScanner.Rules
 
         public AttachmentsRule(string config_path)
         {
-            var json = File.ReadAllText(config_path);
+            if(File.Exists(config_path))
+            {
+                var json = File.ReadAllText(config_path);
 
-            var root = JsonSerializer.Deserialize<JsonElement>(json);
-            suspicious_extentions_ = JsonSerializer.Deserialize<List<string>>(
-                root.GetProperty("Attachments").GetProperty("Extentions").GetRawText()
-            );
-            suspicious_filenames_ = JsonSerializer.Deserialize<List<string>>(
-                    root.GetProperty("Attachments").GetProperty("Filenames").GetRawText()
+                var root = JsonSerializer.Deserialize<JsonElement>(json);
+                suspicious_extentions_ = JsonSerializer.Deserialize<List<string>>(
+                    root.GetProperty("Attachments").GetProperty("Extentions").GetRawText()
                 );
+                suspicious_filenames_ = JsonSerializer.Deserialize<List<string>>(
+                        root.GetProperty("Attachments").GetProperty("Filenames").GetRawText()
+                    );
+            }
         }
         public string Name => "Dangerous Attachment";
         public PhishingConfidenceLevel IsMatch(IMailItem mail)

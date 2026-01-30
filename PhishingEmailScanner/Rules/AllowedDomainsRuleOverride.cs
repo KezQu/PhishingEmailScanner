@@ -7,19 +7,19 @@ namespace PhishingEmailScanner.Rules
     {
         public string Name => "Allowed Domain / IP";
 
-        private readonly HashSet<string> whitelisted_domains_;
+        private readonly WhitelistCacheManager _whitelistCacheManager;
 
         public AllowedDomainsRuleOverride(
-            IEnumerable<string> whitelisted_domains)
+            WhitelistCacheManager whitelistCacheManager)
         {
-            whitelisted_domains_ = new HashSet<string>(whitelisted_domains);
+            _whitelistCacheManager = whitelistCacheManager;
         }
 
         public bool IsMatch(IMailItem mail)
         {
             var domain = mail.SenderEmail?.Split('@').Last();
 
-            return (domain != null && whitelisted_domains_.Contains(domain));
+            return (domain != null && _whitelistCacheManager.GetFromWhitelist("Domains").Contains(domain));
         }
     }
 }

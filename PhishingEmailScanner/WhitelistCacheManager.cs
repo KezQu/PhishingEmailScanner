@@ -20,6 +20,7 @@ namespace PhishingEmailScanner
                 whitelist_cache_[category] = new HashSet<string>();
             }
             whitelist_cache_[category].Add(value);
+            SaveWhitelist();
         }
         public HashSet<string> GetFromWhitelist(string category)
         {

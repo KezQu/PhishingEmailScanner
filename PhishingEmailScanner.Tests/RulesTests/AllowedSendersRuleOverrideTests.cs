@@ -10,7 +10,10 @@ namespace PhishingEmailScanner.Tests
         [TestMethod]
         public void IsMatch_ReturnsTrue_WhenSenderIsAllowed()
         {
-            var sut = new AllowedSendersRuleOverride(new[] { "test@example.com", "other@example.com" });
+            var wct = new WhitelistCacheManager();
+            wct.AddToWhitelist("Senders", "test@example.com");
+            wct.AddToWhitelist("Senders", "other@example.com");
+            var sut = new AllowedSendersRuleOverride(wct);
             var mail = new FakeMailItem { SenderEmail = "test@example.com" };
 
             Assert.IsTrue(sut.IsMatch(mail));
@@ -19,7 +22,9 @@ namespace PhishingEmailScanner.Tests
         [TestMethod]
         public void IsMatch_ReturnsFalse_WhenSenderIsNotAllowed()
         {
-            var sut = new AllowedSendersRuleOverride(new[] { "allowed@example.com" });
+            var wct = new WhitelistCacheManager();
+            wct.AddToWhitelist("Senders", "allowed@example.com");
+            var sut = new AllowedSendersRuleOverride(wct);
             var mail = new FakeMailItem { SenderEmail = "notallowed@example.com" };
 
             Assert.IsFalse(sut.IsMatch(mail));
@@ -28,7 +33,8 @@ namespace PhishingEmailScanner.Tests
         [TestMethod]
         public void IsMatch_ReturnsFalse_WhenAllowedSendersIsEmpty()
         {
-            var sut = new AllowedSendersRuleOverride(new string[0]);
+            var wct = new WhitelistCacheManager();
+            var sut = new AllowedSendersRuleOverride(wct);
             var mail = new FakeMailItem { SenderEmail = "anyone@example.com" };
 
             Assert.IsFalse(sut.IsMatch(mail));

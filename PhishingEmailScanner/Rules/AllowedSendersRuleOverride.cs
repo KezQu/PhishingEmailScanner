@@ -6,16 +6,16 @@ namespace PhishingEmailScanner.Rules
     {
         public string Name => "Sender In Allowed Address Book";
 
-        private HashSet<string> allowed_senders_;
+        private readonly WhitelistCacheManager _whitelistCacheManager;
 
-        public AllowedSendersRuleOverride(IEnumerable<string> allowed_senders)
+        public AllowedSendersRuleOverride( WhitelistCacheManager whitelistCacheManager )
         {
-            allowed_senders_ = new HashSet<string>(allowed_senders);
+            _whitelistCacheManager = whitelistCacheManager;
         }
 
         public bool IsMatch(IMailItem mail)
         {
-            return allowed_senders_.Contains(mail.SenderEmail);
+            return _whitelistCacheManager.GetFromWhitelist("Senders").Contains(mail.SenderEmail);
         }
     }
 }
